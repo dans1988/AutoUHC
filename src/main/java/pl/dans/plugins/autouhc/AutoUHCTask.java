@@ -24,7 +24,7 @@ public class AutoUHCTask extends BukkitRunnable {
         if (elapsed == -6) {
             Bukkit.getServer().broadcastMessage(getMessageStart() + "Starting in...");
             Bukkit.getServer().getWorld("world").setTime(0);
-            Bukkit.getServer().dispatchCommand(sender, "pvp global off");
+            Bukkit.getServer().dispatchCommand(sender, "pvp");
             Bukkit.getServer().dispatchCommand(sender, "freeze");
             Bukkit.getServer().getWorld("world").setGameRuleValue("doMobSpawning", "false");
         } else if (elapsed == -5) {
@@ -45,7 +45,6 @@ public class AutoUHCTask extends BukkitRunnable {
         } else if (elapsed == 0) {
             Bukkit.getServer().broadcastMessage(getMessageStart() + "GO!");
             Bukkit.getServer().getWorld("world").setTime(0);
-            //Bukkit.getServer().dispatchCommand(sender, "worldborder set 2500");
             Bukkit.getServer().dispatchCommand(sender, timerConfig.getStartupCommand());
             
         } else if (elapsed == 5) {
@@ -76,17 +75,12 @@ public class AutoUHCTask extends BukkitRunnable {
         }
         else if (elapsed == minutesToSeconds(timerConfig.getMeetupTime()) - minutesToSeconds(5)) {
             Bukkit.getServer().broadcastMessage(getMessageStart() + "Meetup in 5 minutes!");
-            //Bukkit.getServer().broadcastMessage(getMessageStart() + "The border will shrink to a 200x200 area in the span of 15 minutes as soon as the meetup is called!");
-            //Bukkit.getServer().broadcastMessage(getMessageStart() + "If you are close to the border, consider moving closer to 0.0 now.");
 
         } else if (elapsed == minutesToSeconds(timerConfig.getMeetupTime())) {
 
             Bukkit.getServer().broadcastMessage(getMessageStart() + "Meetup!");
             Bukkit.getServer().broadcastMessage(getMessageStart() + "Go to x = 0, z = 0 now! Don't stop for anythig except for battles!");
             Bukkit.getServer().broadcastMessage(getMessageStart() + "You will be disqualified if you constantly run away from a 200x200 area around 0.0!");
-            //Bukkit.getServer().broadcastMessage(getMessageStart() + "During the next 15 minutes, the border will shrink into a 200x200 area!");
-            //Bukkit.getServer().broadcastMessage(getMessageStart() + "You don't have to go to 0.0 immediately - the border is your limit, just stay on the surface!");
-            //Bukkit.getServer().dispatchCommand(sender, "worldborder set 200 900");
 
         }
 
@@ -94,7 +88,7 @@ public class AutoUHCTask extends BukkitRunnable {
     }
 
     private String getMessageStart() {
-        return ChatColor.RED + "[" + ChatColor.LIGHT_PURPLE + "Sperlo's UHC"
+        return ChatColor.RED + "[" + ChatColor.LIGHT_PURPLE + "Terribuilder's UHC"
                 + ChatColor.RED + "] " + ChatColor.YELLOW;
     }
 
