@@ -1,0 +1,5 @@
+pvp: 900
+permaday: 3900
+meetup: 5400
+delayedCommand: "setHealth 1 *"
+startupCommand: "msg dans1988 startup command"

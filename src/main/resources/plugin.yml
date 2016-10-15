@@ -1,0 +1,32 @@
+name: AutoUHC
+main: pl.dans.plugins.autouhc.AutoUHC
+version: 1.0
+  
+commands:
+  uhcstart:
+    description: Basic commands for AutoUHC
+    usage: /<command>
+    permission: autouhc.basic
+    permission-message: You don't have <permission>
+  uhcset:
+    description: Basic commands for AutoUHC
+    usage: /<command> <time>
+    permission: autouhc.basic
+    permission-message: You don't have <permission>
+  uhcstop:
+    description: Basic commands for AutoUHC
+    usage: /<command>
+    permission: autouhc.basic
+    permission-message: You don't have <permission>
+  uhcresume:
+    description: Basic commands for AutoUHC
+    usage: /<command>
+    permission: autouhc.basic
+    permission-message: You don't have <permission>
+  timeleft:
+    description: Basic commands for AutoUHC
+    usage: /<command>
+permissions:
+    autouhc.basic:
+        description: Allows use of the commands in the plugin
+        default: op
