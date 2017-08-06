@@ -45,6 +45,7 @@ public class AutoUHCTask extends BukkitRunnable {
         } else if (elapsed == 0) {
             Bukkit.getServer().broadcastMessage(getMessageStart() + "GO!");
             Bukkit.getServer().getWorld("world").setTime(0);
+            Bukkit.getServer().dispatchCommand(sender, "worldborder set 2500");
             Bukkit.getServer().dispatchCommand(sender, timerConfig.getStartupCommand());
             
         } else if (elapsed == 5) {
@@ -75,12 +76,15 @@ public class AutoUHCTask extends BukkitRunnable {
         }
         else if (elapsed == minutesToSeconds(timerConfig.getMeetupTime()) - minutesToSeconds(5)) {
             Bukkit.getServer().broadcastMessage(getMessageStart() + "Meetup in 5 minutes!");
+            Bukkit.getServer().broadcastMessage(getMessageStart() + "The border will shrink to a 200x200 area in the span of 10 minutes as soon as the meetup is called!");
+            Bukkit.getServer().broadcastMessage(getMessageStart() + "If you are close to the border, consider moving closer to 0.0 now.");
 
         } else if (elapsed == minutesToSeconds(timerConfig.getMeetupTime())) {
 
             Bukkit.getServer().broadcastMessage(getMessageStart() + "Meetup!");
             Bukkit.getServer().broadcastMessage(getMessageStart() + "Go to x = 0, z = 0 now! Don't stop for anythig except for battles!");
-            Bukkit.getServer().broadcastMessage(getMessageStart() + "You will be disqualified if you constantly run away from a 200x200 area around 0.0!");
+            Bukkit.getServer().broadcastMessage(getMessageStart() + "During the next 10 minutes, the border will shrink the map into a 200x200 area!");
+            Bukkit.getServer().dispatchCommand(sender, "worldborder set 200 600");
 
         }
 
